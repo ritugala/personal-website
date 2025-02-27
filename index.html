@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritu Gala | ML Engineer</title>
+    <style>
+        :root {
+            --primary-bg: #0f111a;
+            --secondary-bg: #171a2a;
+            --primary-text: #ffffff;
+            --secondary-text: #b0b7c4;
+            --accent-color: #36d7b7;
+            --highlight-color: #e94c89;
+            --link-color: #36d7b7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--primary-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4rem 0;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal {
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .terminal-header {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .terminal-button.red {
+            background-color: #ff5f56;
+        }
+
+        .terminal-button.yellow {
+            background-color: #ffbd2e;
+        }
+
+        .terminal-button.green {
+            background-color: #27c93f;
+        }
+
+        .terminal-content {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--secondary-text);
+        }
+
+        .terminal-line {
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .const {
+            color: #e94c89;
+        }
+
+        .variable {
+            color: white;
+        }
+
+        .operator {
+            color: white;
+        }
+
+        .object {
+            color: white;
+        }
+
+        .key {
+            color: white;
+        }
+
+        .string {
+            color: #f1fa8c;
+        }
+
+        .comment {
+            color: #6272a4;
+        }
+
+        .intro {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .name {
+            color: var(--highlight-color);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--secondary-bg);
+            margin-right: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-links svg {
+            fill: var(--highlight-color);
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 2rem;
+            background-color: transparent;
+            color: var(--primary-text);
+            border: 2px solid var(--highlight-color);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--highlight-color);
+            color: white;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 1;
+            margin-right: 2rem;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item::before {
+            content: "•";
+            color: var(--highlight-color);
+            margin-right: 0.5rem;
+        }
+
+        .experience-item {
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            color: var(--primary-text);
+        }
+
+        .experience-company {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: var(--secondary-text);
+        }
+
+        .project-item {
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+        }
+
+        .project-description {
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background-color: rgba(54, 215, 183, 0.1);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-text {
+            color: var(--secondary-text);
+        }
+
+        .footer-link {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding: 2rem 0;
+            }
+
+            .hero-content {
+                margin-bottom: 2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .intro {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">ritu.me</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#skills">SKILLS</a></li>
+                    <li><a href="#experience">EXPERIENCES</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="intro">
+                    Hi,<br>
+                    I'm <span class="name">Ritu</span>, and I am a<br>
+                    Machine Learning Engineer.
+                </h1>
+                <div class="social-links">
+                    <a href="https://github.com/ritugala" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/ritu-gala" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                        </svg>
+                    </a>
+                </div>
+                <a href="mailto:ritugala13@gmail.com" class="contact-btn">CONTACT ME ✉️</a>
+            </div>
+            <div class="hero-image">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-button red"></div>
+                        <div class="terminal-button yellow"></div>
+                        <div class="terminal-button green"></div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-line">
+                            <span class="const">const</span>
+                            <span class="variable"> ritu </span>
+                            <span class="operator">=</span>
+                            <span class="object"> {</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="key">  skills:</span>
+                            <span class="object"> {</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="key">    languages:</span>
+                            <span class="object"> {</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="key">      programming:</span>
+                            <span class="object"> [</span><span class="string">'Python'</span><span class="operator">,</span><span class="string">'SQL'</span><span class="operator">,</span><span class="string">'Java'</span><span class="object">]</span><span class="operator">,</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="key">      web:</span>
+                            <span class="object"> [</span><span class="string">'HTML'</span><span class="operator">,</span><span class="string">'CSS'</span><span class="operator">,</span><span class="string">'JavaScript'</span><span class="object">]</span><span class="operator">,</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="object">    }</span><span class="operator">,</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="key">    libraries:</span>
+                            <span class="object"> [</span><span class="string">'PyTorch'</span><span class="operator">,</span><span class="string">'NumPy'</span><span class="operator">,</span><span class="string">'Pandas'</span><span class="operator">,</span><span class="string">'LangChain'</span><span class="object">]</span><span class="operator">,</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="object">  }</span><span class="operator">,</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="key">  characteristics:</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="object">  [</span><span class="string">'ML ENGINEER'</span><span class="operator">,</span><span class="string">'RESEARCHER'</span><span class="operator">,</span><span class="string">'INNOVATOR'</span><span class="object">]</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="object">};</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT ME</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a Machine Learning Engineer with expertise in developing and deploying AI models. I recently graduated with a Master's in Artificial Intelligence and Innovation from Carnegie Mellon University with a perfect 4.0 GPA.</p>
+                    <br>
+                    <p>My background includes experience with large language models, data science, and software engineering. I'm particularly interested in post-training optimization, synthetic data generation, and building agentic AI systems.</p>
+                    <br>
+                    <h3>Education</h3>
+                    <br>
+                    <p><strong>Carnegie Mellon University (CMU)</strong></p>
+                    <p>Master of Science in Artificial Intelligence and Innovation</p>
+                    <p>GPA: 4.0/4.0, May 2024</p>
+                    <br>
+                    <p><strong>Veermata Jijabai Technological Institute (VJTI)</strong></p>
+                    <p>Bachelor of Technology in Computer Science</p>
+                    <p>GPA: 3.56/4.0, May 2021</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x300" alt="AI Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">C/C++</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <div class="skill-item">PyTorch</div>
+                    <div class="skill-item">NumPy</div>
+                    <div class="skill-item">Pandas</div>
+                    <div class="skill-item">Sci-kit learn</div>
+                    <div class="skill-item">PySpark</div>
+                    <div class="skill-item">LangChain</div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">AWS</div>
+                    <div class="skill-item">GCP</div>
+                    <div class="skill-item">MLFlow</div>
+                    <div class="skill-item">Azure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">EXPERIENCE</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Machine Learning Engineer</h3>
+                        <p class="experience-company">Nexusflow.ai</p>
+                    </div>
+                    <p class="experience-date">June 2024 - Present</p>
+                </div>
+                <ul>
+                    <li>Post-trained open-source models to improve agentic capabilities (specific focus on function calling/tool-calling)</li>
+                    <li>Specifically focused on data curation and synthetic data generation for fine-tuning (100k+ data points)</li>
+                    <li>Improved overall model inference latency by 25% using Speculative Decoding Methods</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Data Science Intern</h3>
+                        <p class="experience-company">Oracle</p>
+                    </div>
+                    <p class="experience-date">May 2023 - Aug 2023</p>
+                </div>
+                <ul>
+                    <li>Performed Customer Segmentation across 4 million customers, using clustering algorithms</li>
+                    <li>Developed a negative data generation algorithm yielding 10 million negative data points to establish a large-scale balanced dataset, and used this to create classification models to predict redemption rate with a recall of 94%</li>
+                    <li>Initiated the development of a prototype for an automated Question Answering system employing Retrieval Augmented Generation technology through LangChain, projected to reduce manual workload by 40 hours monthly</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Software Engineer</h3>
+                        <p class="experience-company">Goldman Sachs</p>
+                    </div>
+                    <p class="experience-date">June 2021 - June 2022</p>
+                </div>
+                <ul>
+                    <li>Implemented an ETL (extract-transform-load) pipeline utilizing Kafka for migration of data from existing distributed databases to the cloud (Amazon S3, Amazon Redshift) estimated to be used by 300 simultaneous clients</li>
+                    <li>Maintained and improved the existing relational distributed database system thus saving 50 man-hours monthly</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Data Scientist Intern</h3>
+                        <p class="experience-company">Citispotter</p>
+                    </div>
+                    <p class="experience-date">Oct 2020 - Dec 2020</p>
+                </div>
+                <ul>
+                    <li>Designed and implemented an end-to-end Chrome Extension for four social media platforms, enriching users with valuable insights from integrated ML models (Grammar Correction, Sentiment Detection) for each post on their feed</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">PROJECTS</h2>
+            
+            <div class="project-item">
+                <h3 class="project-title">DataTune: Grounded Synthetic Data Creation</h3>
+                <p class="project-description">
+                    Designed and developed a system for creating synthetic data from existing HuggingFace datasets using LLMs for a given task. This repository has 1700 stars on GitHub. The system includes Dataset Selection (which helps to localize to an existing relevant dataset) and Dataset Transformation (to transform the selected dataset to align with the task requirements). Finetuned Mistral-7B with our system against six BigBench tasks to find a 49% improvement on few-shot prompting.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">Hugging Face</span>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <h3 class="project-title">Depression Metrics Prediction from Clinical Notes</h3>
+                <p class="project-description">
+                    Developed a hybrid approach of symptom-based clustering along with Large Language Models (LLMs) on clinical notes to predict depression metrics (like PHQ-9) which is expected to help reduce treatment time by 25%.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">Healthcare AI</span>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <h3 class="project-title">Collaborative Agents for Question Answer Generation</h3>
+                <p class="project-description">
+                    Created a multi-agent system using LLMs (GPT 3.5) to generate a specialized QA dataset on glioblastoma, producing over 800 question-answer pairs for the non-profit Cancer Commons.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">Multi-agent Systems</span>
+                    <span class="tech-tag">Healthcare</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2025 Ritu Gala. All rights reserved.</p>
+            <p>Connect with me on <a href="https://linkedin.com/in/ritu-gala" class="footer-link">LinkedIn</a> or check out my code on <a href="https://github.com/ritugala" class="footer-link">GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
